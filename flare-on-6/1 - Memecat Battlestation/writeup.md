@@ -68,4 +68,12 @@ Since XOR is reflexive, XORing these values by 0x41 will yield the original valu
 
 Entering the above two codes led me to the flag:
 
-*Kitteh_save_galixy@flare-on.com*
+**Kitteh_save_galixy@flare-on.com**
+
+### Comments:
+
+A very memey challenge! It was actually pretty easy and I enjoyed getting a taste of .NET programming. A good start to the Flare-on CTF
+
+### Challenge Keywords:
+
+`reversing` `.NET`

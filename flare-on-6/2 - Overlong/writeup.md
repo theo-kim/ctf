@@ -21,14 +21,14 @@ I first ran the program. Upon runnning the executable, an alert window appears w
 
 Upon openning the assembly in Ghidra and Binja, I decided to work backwards and determine what the desired output of the program was. The last function to be called is the Windows OS Kernal function "MessageBoxA" which opens the afforementioned alert box. The docs list the function as accepting for arguments:
 
-'''c++
+```c++
 int MessageBox(
     HWND hWnd,
     LPCTSTR lpText,
     LPCTSTR lpCaption,
     UINT uType
 )
-'''
+```
 
 > `hWnd` refers to the parent window (pass NULL if the dialog is the root window), `lpText` is the message to be displayed, `lpCaption` is the dialog box title, and `uType` is the dialog window type (i.e. this controls the number of buttons and what each button does).
 
@@ -64,4 +64,12 @@ I think I found the flag!
 
 ### Solution:
 
-*I_a_M_t_h_e_e_n_C_o_D_i_n_g@flare-on.com*
+**I_a_M_t_h_e_e_n_C_o_D_i_n_g@flare-on.com**
+
+### Comments: 
+
+A simple reversing challenge, I appreciated the little bit of crypto involved in it. A bit harder than the last one.
+
+### Challenge Keywords:
+
+`reversing` `code analysis`
