@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout android:id="@id/constraintLayout" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="36.0sp" android:typeface="normal" android:textStyle="bold" android:id="@id/textViewFlareBearName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/name_heading_format" android:fontFamily="casual" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/imageLayout" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:layout_marginStart="8.0dip" android:layout_marginEnd="8.0dip" app:layout_constraintBottom_toTopOf="@id/menuLayout" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/textViewFlareBearName">
+        <ImageView android:id="@id/flareBearImageView" android:tag="happy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/happy" android:contentDescription="@string/flare_bear_image" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/menuLayout" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent">
+        <ImageButton android:id="@id/buttonFeed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/feed" android:layout_weight="1.0" android:onClick="feed" android:contentDescription="@string/feed" app:srcCompat="@drawable/feed" />
+        <ImageButton android:id="@id/buttonPlay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/play" android:layout_weight="1.0" android:onClick="play" android:contentDescription="@string/play" app:srcCompat="@drawable/play" />
+        <ImageButton android:id="@id/buttonClean" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/clean_up" android:layout_weight="1.0" android:onClick="clean" android:contentDescription="@string/clean_up" app:srcCompat="@drawable/clean" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout android:background="@drawable/bgrepeat" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="36.0sp" android:typeface="normal" android:textStyle="bold" android:gravity="center" android:id="@id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/create_new_heading" android:fontFamily="casual" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.5" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <EditText android:textSize="24.0sp" android:id="@id/flareBearNameInput" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="@string/name_your_flare_bear" android:ems="10" android:inputType="textPersonName" android:fontFamily="casual" android:textAlignment="center" />
+        <Button android:textSize="30.0sp" android:id="@id/button" android:layout_width="234.0dip" android:layout_height="wrap_content" android:text="@string/lets_go" android:onClick="showFlareBear" android:fontFamily="casual" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
