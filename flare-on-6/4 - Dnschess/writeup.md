@@ -1,6 +1,6 @@
 # Flare-on CTF 2019
 
-## 3 - DNSChess
+## 4 - DNSChess
 
 ### Challenge text:
 
