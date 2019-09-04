@@ -1,0 +1,6 @@
+C:\Users\tgim9\Downloads\ctf\flare-on-6\6 - bmphide\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\tgim9\Downloads\ctf\flare-on-6\6 - bmphide\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\tgim9\Downloads\ctf\flare-on-6\6 - bmphide\ConsoleApp1\obj\x86\Debug\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\tgim9\Downloads\ctf\flare-on-6\6 - bmphide\ConsoleApp1\obj\x86\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\tgim9\Downloads\ctf\flare-on-6\6 - bmphide\ConsoleApp1\obj\x86\Debug\ConsoleApp1.exe
+C:\Users\tgim9\Downloads\ctf\flare-on-6\6 - bmphide\ConsoleApp1\obj\x86\Debug\ConsoleApp1.pdb
