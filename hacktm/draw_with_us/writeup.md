@@ -1,0 +1,81 @@
+# HackTM CTF 2020
+
+## Draw With Us
+
+### Challenge text:
+
+Come draw with us!
+
+http://167.172.165.153:60000/
+
+Author: stackola
+Hint! Changing your color is the first step towards happiness.
+
+### Provided Files:
+
+- stripped.js (JavaScript source)
+
+### Tooling:
+
+Mozilla Firefox browser, emacs for source inspection.
+
+### Solving the challenge:
+
+First I navigated to the given address and encountered a "Drawing Board" web app. Notable features include:
+
+- A username login at the bottom of the page
+- A central pixelated canvas with a variety of images and text that is slowly revealed to say Cyber
+- Clicking on the canvas creates a popup that says "Please log in to paint"
+
+Next I inspected the JavaScript source with the intention of finding some sort of username to log in with. The source seems to be a server file (created with Express) rather than a local file, meaning that the server is running Node.js. There are seven possible routes defined by the server:
+
+- "/": serves the board (GET)
+- "/init": creates a new drawing board (POST)
+- "/flag": gets the flag (GET)
+- "/serverInfo": returns information on the server (GET)
+- "/paint": paints the user's designated color to an X,Y position on the art board(POST)
+- "/updateUser": updates a user's priviledges and color (each user is assigned a color to draw with) (POST)
+- "/login": authenticates and creates a user (POST)
+
+It seems that the server uses a priviledge based access control system. Furthermore, it seems that the hint provided in the challenge text makes sense as it says to change you color, meaning to change the color of the user via the `/updateUser` route. Additionally, I assume my final foal will be to get the flag via the `/flag` route which is only accessible it I am the root user (my id is 0).
+
+Looking at the `/login` route, it seems that users don't have to provide credentials beyond a username that is unique from the admin username (hacktm). Logging into the site with a dummy username ("potato") confirms this. It also allows me to draw onto the board (my color is black). Additionally, it now lists a message ("Hello there!"), a height and width value, a version number, a number of online users, and a background color. It now seems safe to assume that this challenge involves some sort of priviledge escalation via the `updateUser` route.
+
+The `updateUser` route seems to perform two checks:
+
+1. Is the user logged in?
+2. Does the user's username match that of the admin as per the server configuration (this is significant because the `/flag` route requires that the user's uid is 0x00 rather than it be the admin).
+
+My exploitation should involve either overriding the requirement that the user not have the same username as the admin or to change the admin's username. In reality, it seems that the user information is stored in a signed JSON Web Token inside of the client side React application, and therefore may not be easily altered in order to change the user's username to the admin's username. Similarly, the admin's username is stored in a configuration variable on the server and may also not be accessible to change. I think that the jwt may be weak link to exploit. After some research into how to exploit JWTs (https://medium.com/swlh/hacking-json-web-tokens-jwts-9122efe91e4a) I think I can attempt to compromise the token. Upon logging in with the username "poop" I get the following token:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg3M2QyZTJiLTE0YTItNGNjMC05OTg1LWFkZTEzODU1OTJlOCIsImlhdCI6MTU4MDYwNDcxNH0.3mYUxObAu0gGBGVZBcUk0UTH6WzpR5e0NCbZr_E9Unw
+```
+
+Decoded it becomes:
+
+```json
+{
+	"alg":"HS256",
+	"typ":"JWT"
+}
+{
+	"id":"873d2e2b-14a2-4cc0-9985-ade1385592e8",
+	"iat":1580604714
+}
+3mYUxObAu0gGBGVZBcUk0UTH6WzpR5e0NCbZr_E9Unw'
+```
+
+So, my first attempt is to try it after setting the `alg` field to "none." 
+
+### The solution:
+
+
+
+### Comments:
+
+
+
+### Challenge Keywords:
+
+`web` `javascript` `React`
